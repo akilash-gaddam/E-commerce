@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-canvas text-ink font-body;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  ::selection {
+    @apply bg-citrus text-citrus-text;
+  }
+}
+
+/* Custom component styles */
+@layer components {
+  /* Card elevation with hard shadow */
+  .card-elevated {
+    @apply bg-elevated border border-border shadow-hard;
+  }
+
+  .card-elevated-hover {
+    @apply card-elevated transition-shadow duration-200 hover:shadow-hard-lg;
+  }
+
+  /* Button variants */
+  .btn-primary {
+    @apply bg-citrus text-citrus-text font-body font-body-bold px-6 py-3
+           border border-border shadow-hard
+           transition-all duration-150
+           hover:bg-citrus-hover hover:shadow-hard-lg active:shadow-hard-sm active:translate-x-0.5 active:translate-y-0.5
+           focus:outline-none focus:ring-2 focus:ring-citrus focus:ring-offset-2 focus:ring-offset-elevated
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-hard disabled:hover:translate-x-0 disabled:hover:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply bg-forest text-forest-text font-body font-body-bold px-6 py-3
+           border border-border shadow-hard
+           transition-all duration-150
+           hover:bg-forest-hover hover:shadow-hard-lg active:shadow-hard-sm active:translate-x-0.5 active:translate-y-0.5
+           focus:outline-none focus:ring-2 focus:ring-forest focus:ring-offset-2 focus:ring-offset-elevated
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-hard disabled:hover:translate-x-0 disabled:hover:translate-y-0;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent text-ink font-body font-body-semibold px-4 py-2
+           border border-transparent
+           transition-all duration-150
+           hover:bg-border-muted hover:border-border
+           focus:outline-none focus:ring-2 focus:ring-ink focus:ring-offset-2 focus:ring-offset-elevated;
+  }
+
+  .btn-danger {
+    @apply bg-ink text-elevated font-body font-body-bold px-4 py-2
+           border border-border shadow-hard-sm
+           transition-all duration-150
+           hover:bg-ink/90
+           focus:outline-none focus:ring-2 focus:ring-ink focus:ring-offset-2 focus:ring-offset-elevated;
+  }
+
+  /* Input styles */
+  .input-field {
+    @apply w-full px-4 py-3 bg-elevated border border-border
+           font-body text-ink placeholder:text-ink-light
+           focus:outline-none focus:ring-2 focus:ring-citrus focus:border-transparent
+           transition-all duration-150;
+  }
+
+  .input-field-error {
+    @apply border-red-600 focus:ring-red-600;
+  }
+
+  /* Badge styles */
+  .badge-stock {
+    @apply font-mono font-mono-medium text-xs px-2 py-1 rounded;
+  }
+
+  .badge-stock-ok {
+    @apply badge-stock bg-citrus text-citrus-text;
+  }
+
+  .badge-stock-low {
+    @apply badge-stock bg-amber-400 text-ink;
+  }
+
+  .badge-stock-out {
+    @apply badge-stock bg-ink text-elevated;
+  }
+
+  .badge-category {
+    @apply font-mono font-mono-medium text-xs px-2 py-1 rounded uppercase;
+  }
+
+  /* Drawer animation */
+  .drawer-enter {
+    @apply transform transition-transform duration-300 ease-out;
+  }
+
+  .drawer-exit {
+    @apply transform transition-transform duration-200 ease-in;
+  }
+
+  /* Stepper */
+  .stepper-step {
+    @apply relative flex flex-col items-center;
+  }
+
+  .stepper-line {
+    @apply absolute top-3 left-full w-full h-0.5 bg-border-muted;
+  }
+
+  .stepper-line-complete {
+    @apply bg-citrus;
+  }
+
+  .stepper-circle {
+    @apply relative z-10 w-6 h-6 rounded-full border-2 border-border bg-elevated
+           font-mono font-mono-bold text-xs flex items-center justify-center
+           transition-all duration-300;
+  }
+
+  .stepper-circle-complete {
+    @apply bg-citrus border-citrus text-citrus-text;
+  }
+
+  .stepper-circle-active {
+    @apply bg-ink border-ink text-elevated ring-4 ring-ink/10;
+  }
+
+  .stepper-circle-pending {
+    @apply text-ink-light;
+  }
+
+  /* Product card */
+  .product-card {
+    @apply card-elevated-hover overflow-hidden flex flex-col;
+  }
+
+  .product-card-image {
+    @apply aspect-square bg-border-muted flex items-center justify-center;
+  }
+
+  /* Quantity stepper */
+  .qty-stepper {
+    @apply flex items-center gap-2 border border-border bg-elevated rounded;
+  }
+
+  .qty-btn {
+    @apply w-8 h-8 flex items-center justify-center font-mono font-mono-bold text-ink
+           hover:bg-border-muted active:bg-border active:scale-95
+           transition-all duration-100;
+  }
+
+  /* Table styles */
+  .table-container {
+    @apply overflow-x-auto border border-border bg-elevated;
+  }
+
+  .table-header {
+    @apply bg-border-muted text-ink font-body font-body-semibold text-sm uppercase tracking-wider;
+  }
+
+  .table-cell {
+    @apply px-4 py-3 border-y border-border-muted text-sm;
+  }
+
+  .table-row {
+    @apply hover:bg-border-muted/50 transition-colors;
+  }
+
+  /* Portal indicator */
+  .portal-badge {
+    @apply font-mono font-mono-medium text-xs px-3 py-1 rounded border border-border;
+  }
+
+  .portal-badge-storefront {
+    @apply portal-badge bg-citrus text-citrus-text;
+  }
+
+  .portal-badge-admin {
+    @apply portal-badge bg-forest text-forest-text;
+  }
+}
+
+/* Utility classes for category artwork */
+@layer utilities {
+  .category-artwork {
+    @apply w-full h-full flex items-center justify-center;
+  }
+}
+
+/* Recharts customization */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: #E7E5E0;
+}
+
+.recharts-tooltip-wrapper {
+  @apply bg-elevated border border-border shadow-hard p-3;
+}
+
+.recharts-default-tooltip {
+  @apply bg-elevated border border-border shadow-hard p-3 !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-canvas;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-ink/20 rounded hover:bg-ink/40;
+}
