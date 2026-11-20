@@ -23,7 +23,7 @@ export default function LoginPage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-canvas flex items-center justify-center">
-        <div className="font-mono font-mono-medium text-sm">LOADING...</div>
+        <div className="font-mono font-mono-medium text-sm text-ink-muted">LOADING...</div>
       </div>
     );
   }
@@ -111,11 +111,17 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-canvas flex items-center justify-center p-4">
-      <div className="card-elevated max-w-md w-full px-6 sm:px-10 py-10">
-        <div className="mb-8 text-center">
-          <h2 className="text-3xl font-display font-display-bold mb-2">
-            STANDARD<span className="text-ink-light">.</span>IO
+    <div className="min-h-screen bg-canvas flex items-center justify-center p-4 relative">
+      {/* Radial vignette background */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: 'radial-gradient(circle at top, #1C1C22 0%, #09090B 70%)'
+      }} />
+
+      <div className="card-elevated max-w-md w-full px-10 sm:px-12 py-10 relative">
+        <div className="mb-10 text-center">
+          <h2 className="text-4xl font-display-bold mb-3">
+            <span className="text-ink">STANDARD</span>
+            <span className="text-gold">.</span>IO
           </h2>
           <p className="font-body font-body-medium text-sm text-ink-muted">
             {isRegister ? 'Create your account' : 'Sign in to continue'}
@@ -126,9 +132,9 @@ export default function LoginPage() {
         <div className="grid grid-cols-3 gap-2 mb-8">
           <button
             onClick={() => { setMode('customer-login'); setError(''); }}
-            className={`py-2 px-3 rounded text-center font-body font-body-semibold text-sm border transition-colors ${
+            className={`py-2 px-3 rounded-xl text-center font-body font-body-semibold text-sm border transition-all duration-300 ${
               mode === 'customer-login'
-                ? 'bg-citrus text-citrus-text border-citrus'
+                ? 'bg-gold text-gold-text border-gold shadow-glass'
                 : 'bg-elevated text-ink border-border hover:bg-border-muted'
             }`}
           >
@@ -136,9 +142,9 @@ export default function LoginPage() {
           </button>
           <button
             onClick={() => { setMode('admin-login'); setError(''); }}
-            className={`py-2 px-3 rounded text-center font-body font-body-semibold text-sm border transition-colors ${
+            className={`py-2 px-3 rounded-xl text-center font-body font-body-semibold text-sm border transition-all duration-300 ${
               mode === 'admin-login'
-                ? 'bg-forest text-forest-text border-forest'
+                ? 'bg-emerald/10 text-emerald-400 border-emerald/20 shadow-glass'
                 : 'bg-elevated text-ink border-border hover:bg-border-muted'
             }`}
           >
@@ -146,9 +152,9 @@ export default function LoginPage() {
           </button>
           <button
             onClick={() => { setMode('register'); setError(''); }}
-            className={`py-2 px-3 rounded text-center font-body font-body-semibold text-sm border transition-colors ${
+            className={`py-2 px-3 rounded-xl text-center font-body font-body-semibold text-sm border transition-all duration-300 ${
               mode === 'register'
-                ? 'bg-ink text-elevated border-ink'
+                ? 'bg-crimson/10 text-crimson-400 border-crimson/20 shadow-glass'
                 : 'bg-elevated text-ink border-border hover:bg-border-muted'
             }`}
           >
@@ -157,7 +163,7 @@ export default function LoginPage() {
         </div>
 
         {error && (
-          <div className="mb-4 p-3 bg-red-100 border border-red-600 text-red-700 text-sm font-body">
+          <div className="mb-4 p-3 bg-crimson/10 border border-crimson/20 text-crimson-400 text-sm font-body rounded-xl">
             {error}
           </div>
         )}
@@ -224,7 +230,7 @@ export default function LoginPage() {
                 required
               />
             </div>
-            <Button type="submit" className="w-full btn-secondary" disabled={submitting}>
+            <Button type="submit" variant="secondary" className="w-full btn-secondary" disabled={submitting}>
               {submitting ? 'Signing In...' : 'Admin Sign In'}
             </Button>
             <button
@@ -278,7 +284,7 @@ export default function LoginPage() {
           </form>
         )}
 
-        <div className="mt-6 pt-6 border-t border-border-muted text-center">
+        <div className="mt-8 pt-6 border-t border-border-muted text-center">
           <p className="font-mono font-mono-medium text-xs text-ink-muted">
             DEMO CUSTOMER: user@standard.io / user123
           </p>

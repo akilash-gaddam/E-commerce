@@ -43,12 +43,12 @@ export function Navbar() {
           <div className="flex items-center justify-between h-16">
             <button
               onClick={() => navigate('/login')}
-              className="font-display text-xl font-display-bold tracking-tight hover:opacity-70 transition-opacity"
+              className="font-display text-xl font-display-bold tracking-tight hover:opacity-70 transition-opacity flex items-baseline gap-0.5"
             >
-              STANDARD<span className="text-ink-light">.</span>IO
+              STANDARD<span className="text-gold">.</span>IO
             </button>
             <div className="flex items-center gap-4">
-              <span className="portal-badge-storefront font-mono font-mono-medium text-xs px-3 py-1 rounded">
+              <span className="portal-badge-storefront font-mono font-mono-medium text-xs px-3 py-1.5 rounded-xl">
                 STOREFRONT
               </span>
             </div>
@@ -60,7 +60,7 @@ export function Navbar() {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 bg-elevated border-b border-border">
+      <nav className="sticky top-0 z-50 bg-elevated border-b border-border h-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Left: Logo + Nav */}
@@ -69,7 +69,7 @@ export function Navbar() {
                 onClick={() => navigate(isAdmin ? '/admin' : '/shop')}
                 className="font-display text-xl font-display-bold tracking-tight hover:opacity-70 transition-opacity flex items-baseline gap-0.5"
               >
-                STANDARD<span className="text-ink-light">.</span>IO
+                STANDARD<span className="text-gold">.</span>IO
               </button>
 
               {/* Portal Badge */}
@@ -83,13 +83,13 @@ export function Navbar() {
                   <>
                     <button
                       onClick={() => navigate('/shop')}
-                      className={`btn-ghost px-3 py-1.5 ${isShopPage ? 'bg-border-muted border-border' : ''}`}
+                      className={`btn-ghost px-3 py-1.5 rounded-xl ${isShopPage ? 'bg-border-muted border-border' : ''}`}
                     >
                       Shop
                     </button>
                     <button
                       onClick={() => navigate('/orders')}
-                      className={`btn-ghost px-3 py-1.5 ${isOrdersPage ? 'bg-border-muted border-border' : ''}`}
+                      className={`btn-ghost px-3 py-1.5 rounded-xl ${isOrdersPage ? 'bg-border-muted border-border' : ''}`}
                     >
                       Track Orders
                     </button>
@@ -98,7 +98,7 @@ export function Navbar() {
                 {isAdmin && (
                   <button
                     onClick={() => navigate('/admin')}
-                    className={`btn-ghost px-3 py-1.5 ${isAdminPage ? 'bg-border-muted border-border' : ''}`}
+                    className={`btn-ghost px-3 py-1.5 rounded-xl ${isAdminPage ? 'bg-border-muted border-border' : ''}`}
                   >
                     Command Center
                   </button>
@@ -112,12 +112,12 @@ export function Navbar() {
               {isCustomer && (
                 <button
                   onClick={() => setWishlistOpen(true)}
-                  className="relative p-2 hover:bg-border-muted transition-colors rounded group"
+                  className="relative p-2 hover:bg-border-muted transition-colors rounded-xl group"
                   aria-label="Open wishlist"
                 >
                   <Heart className="w-5 h-5 stroke-ink group-hover:stroke-ink transition-colors" />
                   {wishlistCount > 0 && (
-                    <span className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-citrus border border-border rounded-full font-mono font-mono-bold text-[10px] flex items-center justify-center">
+                    <span className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-gold border border-gold/30 rounded-full font-mono font-mono-bold text-[10px] flex items-center justify-center shadow-glass">
                       {wishlistCount}
                     </span>
                   )}
@@ -128,12 +128,12 @@ export function Navbar() {
               {isCustomer && (
                 <button
                   onClick={() => setCartOpen(true)}
-                  className="relative p-2 hover:bg-border-muted transition-colors rounded group"
+                  className="relative p-2 hover:bg-border-muted transition-colors rounded-xl group"
                   aria-label="Open cart"
                 >
                   <ShoppingBag className="w-5 h-5 stroke-ink group-hover:stroke-ink transition-colors" />
                   {itemCount > 0 && (
-                    <span className="absolute -top-0.5 -right-0.5 min-w-[20px] h-5 bg-citrus border border-border rounded-full font-mono font-mono-bold text-[10px] flex items-center justify-center px-1">
+                    <span className="absolute -top-0.5 -right-0.5 min-w-[20px] h-5 bg-gold border border-gold/30 rounded-full font-mono font-mono-bold text-[10px] flex items-center justify-center px-1.5 shadow-glass">
                       {itemCount}
                     </span>
                   )}
@@ -151,10 +151,10 @@ export function Navbar() {
               <div className="relative">
                 <button
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className="flex items-center gap-2 px-3 py-2 hover:bg-border-muted transition-colors rounded"
+                  className="flex items-center gap-2 px-3 py-2 hover:bg-border-muted transition-colors rounded-xl"
                 >
-                  <div className="w-8 h-8 bg-forest border border-border rounded-full flex items-center justify-center">
-                    <UserIcon className="w-4 h-4 stroke-forest-text" />
+                  <div className="w-8 h-8 bg-gold/10 border border-gold/30 rounded-full flex items-center justify-center">
+                    <UserIcon className="w-4 h-4 stroke-gold" />
                   </div>
                   <span className="hidden sm:block font-body font-body-semibold text-sm">
                     {user?.name || 'User'}
@@ -162,8 +162,8 @@ export function Navbar() {
                 </button>
 
                 {mobileMenuOpen && (
-                  <div className="absolute right-0 top-full mt-2 w-48 bg-elevated border border-border shadow-hard-lg rounded overflow-hidden z-50">
-                    <div className="p-2 border-b border-border">
+                  <div className="absolute right-0 top-full mt-2 w-48 bg-elevated border border-border shadow-glass-lg rounded-xl overflow-hidden z-50">
+                    <div className="p-3 border-b border-border">
                       <p className="font-body font-body-semibold text-sm">{user?.name}</p>
                       <p className="font-mono font-mono-medium text-xs text-ink-muted">{user?.email}</p>
                     </div>
@@ -173,7 +173,7 @@ export function Navbar() {
                           setMobileMenuOpen(false);
                           handleSwitchPortal();
                         }}
-                        className="w-full text-left px-3 py-2 text-sm hover:bg-border-muted transition-colors"
+                        className="w-full text-left px-3 py-2 text-sm hover:bg-border-muted transition-colors rounded-xl"
                       >
                         Switch Portal
                       </button>
@@ -182,7 +182,7 @@ export function Navbar() {
                           setMobileMenuOpen(false);
                           handleLogout();
                         }}
-                        className="w-full text-left px-3 py-2 text-sm hover:bg-border-muted transition-colors flex items-center gap-2 text-ink"
+                        className="w-full text-left px-3 py-2 text-sm hover:bg-border-muted transition-colors rounded-xl flex items-center gap-2 text-ink"
                       >
                         <LogOut className="w-4 h-4" />
                         Logout
@@ -195,7 +195,7 @@ export function Navbar() {
               {/* Mobile menu button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-2 hover:bg-border-muted transition-colors rounded"
+                className="md:hidden p-2 hover:bg-border-muted transition-colors rounded-xl"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
@@ -212,7 +212,7 @@ export function Navbar() {
                       navigate('/shop');
                       setMobileMenuOpen(false);
                     }}
-                    className="w-full text-left px-3 py-2 hover:bg-border-muted transition-colors rounded"
+                    className="w-full text-left px-3 py-2 hover:bg-border-muted transition-colors rounded-xl"
                   >
                     Shop
                   </button>
@@ -221,7 +221,7 @@ export function Navbar() {
                       navigate('/orders');
                       setMobileMenuOpen(false);
                     }}
-                    className="w-full text-left px-3 py-2 hover:bg-border-muted transition-colors rounded"
+                    className="w-full text-left px-3 py-2 hover:bg-border-muted transition-colors rounded-xl"
                   >
                     Track Orders
                   </button>
@@ -233,7 +233,7 @@ export function Navbar() {
                     navigate('/admin');
                     setMobileMenuOpen(false);
                   }}
-                  className="w-full text-left px-3 py-2 hover:bg-border-muted transition-colors rounded"
+                  className="w-full text-left px-3 py-2 hover:bg-border-muted transition-colors rounded-xl"
                 >
                   Command Center
                 </button>

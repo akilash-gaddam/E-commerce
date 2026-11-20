@@ -12,6 +12,8 @@ export default function ProductCard({
   onToggleWishlist,
 }) {
   const [busy, setBusy] = useState(false);
+  const [imgError, setImgError] = useState(false);
+  const [imgLoading, setImgLoading] = useState(true);
 
   const formatPrice = (price) => `$${price.toFixed(2)}`;
   const stockQty = product.stock_qty;
@@ -19,10 +21,10 @@ export default function ProductCard({
   const lowStock = stockQty > 0 && stockQty <= 10;
 
   const stockBadgeClass = outOfStock
-    ? 'bg-ink text-elevated'
+    ? 'bg-crimson/10 text-crimson-400 border border-crimson/20'
     : lowStock
-    ? 'bg-amber-400 text-ink'
-    : 'bg-forest text-forest-text';
+    ? 'bg-amber/10 text-amber-400 border border-amber/20'
+    : 'bg-emerald/10 text-emerald-400 border border-emerald/20';
 
   const stockLabel = outOfStock ? 'OUT OF STOCK' : `${stockQty} LEFT`;
 
@@ -44,37 +46,57 @@ export default function ProductCard({
     }
   };
 
+  const handleImageLoad = () => {
+    setImgLoading(false);
+  };
+
+  const handleImageError = () => {
+    setImgError(true);
+    setImgLoading(false);
+  };
+
   return (
-    <div className="product-card">
+    <div className="product-card group">
       {/* Image / category artwork */}
       <div className="product-card-image relative">
         <div className="absolute inset-0">
-          {product.image_url ? (
-            <img
-              src={product.image_url}
-              alt={product.name}
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
+          {product.image_url && !imgError ? (
+            <>
+              {/* Loading placeholder */}
+              {imgLoading && (
+                <div className="w-full h-full bg-border-muted animate-pulse absolute inset-0" aria-hidden="true" />
+              )}
+              <img
+                src={product.image_url}
+                alt={product.name}
+                className={`w-full h-full object-cover transition-all duration-500 ${
+                  imgLoading ? 'opacity-0' : 'opacity-100'
+                } group-focus:scale-105`}
+                loading="lazy"
+                decoding="async"
+                onLoad={handleImageLoad}
+                onError={handleImageError}
+              />
+            </>
           ) : (
             <CategoryArtwork category={product.category} />
           )}
         </div>
 
-        {/* Wishlist toggle */}
+        {/* Wishlist toggle - floating */}
         <button
           type="button"
           onClick={() => onToggleWishlist(product.id)}
           aria-label={inWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
-          className="absolute top-2 right-2 z-10 w-9 h-9 flex items-center justify-center bg-elevated border border-border shadow-hard-sm hover:shadow-hard transition-all"
+          className="absolute top-3 right-3 z-10 w-9 h-9 flex items-center justify-center bg-elevated border border-border shadow-glass-sm hover:shadow-hard transition-all duration-300 rounded-full"
         >
           <Heart
-            className={`w-4 h-4 ${inWishlist ? 'fill-ink stroke-ink' : 'stroke-ink'}`}
+            className={`w-4 h-4 ${inWishlist ? 'fill-gold stroke-gold' : 'stroke-ink'}`}
           />
         </button>
 
         {/* Category badge */}
-        <span className="absolute top-2 left-2 z-10 badge-category bg-elevated text-ink border border-border">
+        <span className="absolute top-3 left-3 z-10 badge-category bg-ink-muted/10 text-ink-light border border-border-muted">
           {product.category}
         </span>
       </div>
@@ -82,13 +104,13 @@ export default function ProductCard({
       {/* Body */}
       <div className="p-4 flex flex-col flex-1">
         <div className="flex items-start justify-between gap-2 mb-1">
-          <h3 className="font-body font-body-bold text-base leading-snug text-ink">
+          <h3 className="font-body font-body-bold text-base leading-snug text-ink line-clamp-2">
             {product.name}
           </h3>
         </div>
 
         <div className="flex items-center gap-2 mb-3">
-          <span className="font-mono font-mono-medium text-[11px] text-ink-muted uppercase">
+          <span className="font-mono font-mono-medium text-[11px] text-ink-muted uppercase tracking-wider">
             {product.sku}
           </span>
           <span className="text-ink-light">·</span>
@@ -101,7 +123,7 @@ export default function ProductCard({
           <span className="font-mono font-mono-bold text-lg text-ink">
             {formatPrice(product.selling_price)}
           </span>
-          <span className={`font-mono font-mono-bold text-[10px] px-2 py-1 ${stockBadgeClass}`}>
+          <span className={`font-mono font-mono-medium text-[10px] px-2.5 py-1 ${stockBadgeClass} rounded-full`}>
             {stockLabel}
           </span>
         </div>
@@ -112,7 +134,7 @@ export default function ProductCard({
             <button
               type="button"
               disabled
-              className="w-full py-2.5 bg-border-muted text-ink-light font-body font-body-bold text-sm border border-border cursor-not-allowed"
+              className="w-full py-2.5 bg-border-muted text-ink-light font-body font-body-semibold text-sm border border-border rounded-xl cursor-not-allowed"
             >
               Out of Stock
             </button>
@@ -145,7 +167,7 @@ export default function ProductCard({
               type="button"
               disabled={busy}
               onClick={handleAdd}
-              className="w-full py-2.5 bg-citrus text-citrus-text font-body font-body-bold text-sm border border-border hover:bg-citrus-hover transition-colors disabled:opacity-60"
+              className="w-full py-2.5 bg-gold text-gold-text font-body font-body-semibold text-sm border border-gold shadow-glass hover:bg-gold-hover transition-all duration-300 rounded-xl disabled:opacity-60"
             >
               + Add to Cart
             </button>

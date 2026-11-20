@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { customerAPI } from '../api/client';
 import { formatPrice, formatOrderId, STATUS_STAGES } from '../utils/helpers';
 import OrderStepper from '../components/OrderStepper';
+import { CategoryArtwork } from '../components/CategoryArtwork';
 
 export default function OrdersPage() {
   const { user } = useAuth();
@@ -115,14 +116,37 @@ export default function OrdersPage() {
                 {/* Items */}
                 <div className="p-4 border-b border-border">
                   {order.items.map((item) => (
-                    <div key={item.id} className="flex justify-between items-center py-2 border-b border-border/50 last:border-0">
-                      <div className="flex flex-col gap-0.5">
-                        <p className="font-body font-body-medium text-sm text-ink">{item.name}</p>
-                        <p className="font-mono font-mono-medium text-xs text-ink-muted">
-                          {item.unit} · Qty {item.quantity}
-                        </p>
+                    <div key={item.id} className="flex justify-between items-center gap-4 py-2 border-b border-border/50 last:border-0">
+                      <div className="flex items-center gap-3 min-w-0 flex-1">
+                        {/* Product thumbnail */}
+                        <div className="w-12 h-12 flex-shrink-0 border border-border rounded overflow-hidden relative">
+                          {item.image_url ? (
+                            <img
+                              src={item.image_url}
+                              alt={item.name}
+                              className="w-full h-full object-cover transition-opacity duration-300"
+                              loading="lazy"
+                              decoding="async"
+                              onError={(e) => {
+                                e.target.style.display = 'none';
+                                e.target.nextElementSibling.style.display = 'block';
+                              }}
+                            />
+                          ) : null}
+                          <CategoryArtwork
+                            category={item.category}
+                            className={item.image_url ? 'absolute inset-0' : ''}
+                            style={item.image_url ? { display: 'none' } : {}}
+                          />
+                        </div>
+                        <div className="flex flex-col gap-0.5 min-w-0">
+                          <p className="font-body font-body-medium text-sm text-ink truncate">{item.name}</p>
+                          <p className="font-mono font-mono-medium text-xs text-ink-muted">
+                            {item.unit} · Qty {item.quantity}
+                          </p>
+                        </div>
                       </div>
-                      <span className="font-mono font-mono-bold text-sm text-ink">
+                      <span className="font-mono font-mono-bold text-sm text-ink whitespace-nowrap">
                         {formatPrice(item.unit_price * item.quantity)}
                       </span>
                     </div>

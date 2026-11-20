@@ -10,31 +10,31 @@ const categoryArtworks = {
     <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
       <defs>
         <linearGradient id="produceGrad" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#143628" stopOpacity="0.15"/>
-          <stop offset="100%" stopColor="#143628" stopOpacity="0.05"/>
+          <stop offset="0%" stopColor="#D4AF37" stopOpacity="0.1"/>
+          <stop offset="100%" stopColor="#D4AF37" stopOpacity="0.05"/>
         </linearGradient>
       </defs>
       <rect width="120" height="120" fill="url(#produceGrad)"/>
       {/* Leaf cluster */}
-      <g stroke="#143628" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
+      <g stroke="#D4AF37" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
         {/* Main stem */}
-        <path d="M60 90 Q60 70 50 55 Q45 45 55 35 Q65 25 75 35 Q80 42 75 55 Q70 68 60 90" fill="#143628" fillOpacity="0.12" stroke="#143628" strokeWidth="1"/>
+        <path d="M60 90 Q60 70 50 55 Q45 45 55 35 Q65 25 75 35 Q80 42 75 55 Q70 68 60 90" fill="none" stroke="#D4AF37" strokeWidth="1"/>
         {/* Leaves */}
-        <ellipse cx="45" cy="50" rx="12" ry="6" transform="rotate(-30 45 50)" fill="#143628" fillOpacity="0.18"/>
-        <ellipse cx="75" cy="48" rx="10" ry="5" transform="rotate(25 75 48)" fill="#143628" fillOpacity="0.18"/>
-        <ellipse cx="55" cy="32" rx="9" ry="4.5" transform="rotate(-10 55 32)" fill="#143628" fillOpacity="0.2"/>
+        <ellipse cx="45" cy="50" rx="12" ry="6" transform="rotate(-30 45 50)" fill="#D4AF37" fillOpacity="0.18"/>
+        <ellipse cx="75" cy="48" rx="10" ry="5" transform="rotate(25 75 48)" fill="#D4AF37" fillOpacity="0.18"/>
+        <ellipse cx="55" cy="32" rx="9" ry="4.5" transform="rotate(-10 55 32)" fill="#D4AF37" fillOpacity="0.2"/>
         {/* Leaf veins */}
-        <path d="M45 50 Q40 42 35 36" stroke="#143628" strokeWidth="0.8" strokeOpacity="0.5"/>
-        <path d="M45 50 Q50 42 55 38" stroke="#143628" strokeWidth="0.8" strokeOpacity="0.5"/>
-        <path d="M75 48 Q80 40 84 35" stroke="#143628" strokeWidth="0.8" strokeOpacity="0.5"/>
-        <path d="M75 48 Q70 40 66 36" stroke="#143628" strokeWidth="0.8" strokeOpacity="0.5"/>
-        <path d="M55 32 Q52 26 49 22" stroke="#143628" strokeWidth="0.8" strokeOpacity="0.5"/>
-        <path d="M55 32 Q58 26 61 23" stroke="#143628" strokeWidth="0.8" strokeOpacity="0.5"/>
+        <path d="M45 50 Q40 42 35 36" stroke="#D4AF37" strokeWidth="0.8" strokeOpacity="0.5"/>
+        <path d="M45 50 Q50 42 55 38" stroke="#D4AF37" strokeWidth="0.8" strokeOpacity="0.5"/>
+        <path d="M75 48 Q80 40 84 36" stroke="#D4AF37" strokeWidth="0.8" strokeOpacity="0.5"/>
+        <path d="M75 48 Q70 40 66 36" stroke="#D4AF37" strokeWidth="0.8" strokeOpacity="0.5"/>
+        <path d="M55 32 Q52 26 49 22" stroke="#D4AF37" strokeWidth="0.8" strokeOpacity="0.5"/>
+        <path d="M55 32 Q58 26 61 23" stroke="#D4AF37" strokeWidth="0.8" strokeOpacity="0.5"/>
       </g>
       {/* Accent dots */}
-      <circle cx="30" cy="30" r="2" fill="#D4FF00" fillOpacity="0.6"/>
-      <circle cx="90" cy="85" r="1.5" fill="#D4FF00" fillOpacity="0.4"/>
-      <circle cx="20" cy="80" r="1" fill="#143628" fillOpacity="0.3"/>
+      <circle cx="30" cy="30" r="2" fill="#D4AF37" fillOpacity="0.6"/>
+      <circle cx="90" cy="85" r="1.5" fill="#D4AF37" fillOpacity="0.4"/>
+      <circle cx="20" cy="80" r="1" fill="#D4AF37" fillOpacity="0.3"/>
     </svg>
   ),
 
@@ -42,17 +42,17 @@ const categoryArtworks = {
     <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
       <defs>
         <linearGradient id="dairyGrad" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#111111" stopOpacity="0.08"/>
-          <stop offset="100%" stopColor="#111111" stopOpacity="0.03"/>
+          <stop offset="0%" stopColor="#10B981" stopOpacity="0.15"/>
+          <stop offset="100%" stopColor="#10B981" stopOpacity="0.05"/>
         </linearGradient>
       </defs>
       <rect width="120" height="120" fill="url(#dairyGrad)"/>
       {/* Milk splash / droplet pattern */}
-      <g fill="#111111" fillOpacity="0.15">
+      <g fill="#10B981" fillOpacity="0.15">
         {/* Main droplet */}
         <path d="M60 25 C60 25 80 35 80 55 C80 75 60 90 60 90 C60 90 40 75 40 55 C40 35 60 25 60 25 Z"/>
         {/* Inner highlight */}
-        <path d="M55 35 C55 35 68 42 68 55 C68 65 55 72 55 72 C55 72 42 65 42 55 C42 42 55 35 55 35 Z" fill="#111111" fillOpacity="0.1"/>
+        <path d="M55 35 C55 35 68 42 68 55 C68 65 55 72 55 72 C55 72 42 65 42 55 C42 42 55 35 55 35 Z" fill="#10B981" fillOpacity="0.1"/>
         {/* Splash droplets */}
         <circle cx="75" cy="30" r="4" fillOpacity="0.18"/>
         <circle cx="85" cy="45" r="3" fillOpacity="0.15"/>
@@ -61,12 +61,12 @@ const categoryArtworks = {
         <circle cx="60" cy="18" r="2" fillOpacity="0.2"/>
       </g>
       {/* Cream swirl */}
-      <g stroke="#111111" strokeWidth="1" strokeOpacity="0.12" fill="none" strokeLinecap="round">
+      <g stroke="#10B981" strokeWidth="1" strokeOpacity="0.12" fill="none" strokeLinecap="round">
         <path d="M50 60 Q55 55 60 60 Q65 65 60 70 Q55 75 50 70 Q45 65 50 60"/>
-        <path d="M55 58 Q58 55 62 58 Q65 61 62 64 Q58 67 55 64 Q52 61 55 58" strokeWidth="0.8"/>
+        <path d="M55 58 Q58 55 62 58 Q65 61 62 64 Q58 67 55 64" strokeWidth="0.8"/>
       </g>
       {/* Accent line */}
-      <line x1="20" y1="100" x2="100" y2="100" stroke="#D4FF00" strokeWidth="2" strokeOpacity="0.5" strokeLinecap="round"/>
+      <line x1="20" y1="100" x2="100" y2="100" stroke="#D4AF37" strokeWidth="2" strokeOpacity="0.5" strokeLinecap="round"/>
     </svg>
   ),
 
@@ -103,12 +103,12 @@ const categoryArtworks = {
       {/* Grain/wheat stalks */}
       <g stroke="#8B6914" strokeWidth="1" strokeOpacity="0.25" strokeLinecap="round">
         <path d="M15 100 Q18 85 16 70 Q15 60 18 55" strokeWidth="1.2"/>
-        <path d="M105 100 Q102 85 104 70 Q105 60 102 55" strokeWidth="1.2"/>
         <path d="M10 95 Q14 75 12 60" strokeWidth="0.8"/>
+        <path d="M105 100 Q102 85 104 70 Q105 60 102 55" strokeWidth="1.2"/>
         <path d="M110 95 Q106 75 108 60" strokeWidth="0.8"/>
       </g>
       {/* Accent */}
-      <rect x="55" y="90" width="10" height="4" rx="2" fill="#D4FF00" fillOpacity="0.7"/>
+      <rect x="55" y="90" width="10" height="4" rx="2" fill="#D4AF37" fillOpacity="0.7"/>
     </svg>
   ),
 
@@ -153,7 +153,7 @@ const categoryArtworks = {
         <path d="M10 102 Q30 107 50 102 Q70 97 90 102 Q110 107 110 102" strokeDasharray="8 4"/>
       </g>
       {/* Accent */}
-      <circle cx="60" cy="15" r="4" fill="#D4FF00" fillOpacity="0.8"/>
+      <circle cx="60" cy="15" r="4" fill="#D4AF37" fillOpacity="0.8"/>
     </svg>
   ),
 
@@ -190,7 +190,7 @@ const categoryArtworks = {
         <path d="M20 40 Q35 30 45 38 Q50 45 42 52 Q35 58 25 50 Q20 45 22 40" stroke="#8B5E3C" strokeWidth="1.5" strokeOpacity="0.25" fill="none"/>
       </g>
       {/* Accent line */}
-      <line x1="15" y1="105" x2="105" y2="105" stroke="#D4FF00" strokeWidth="2" strokeOpacity="0.6" strokeLinecap="round"/>
+      <line x1="15" y1="105" x2="105" y2="105" stroke="#D4AF37" strokeWidth="2" strokeOpacity="0.6" strokeLinecap="round"/>
     </svg>
   ),
 };

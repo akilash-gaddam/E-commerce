@@ -238,6 +238,7 @@ def list_orders(
                 items.append({
                     "product_id": product.id,
                     "name": product.name,
+                    "category": product.category,
                     "unit": product.unit,
                     "quantity": order_item.quantity,
                     "unit_price": order_item.unit_price,
@@ -245,6 +246,7 @@ def list_orders(
                     "line_revenue": round(order_item.unit_price * order_item.quantity, 2),
                     "line_cost": round(order_item.unit_cost * order_item.quantity, 2),
                     "line_profit": round((order_item.unit_price - order_item.unit_cost) * order_item.quantity, 2),
+                    "image_url": product.image_url,
                 })
 
         result.append({

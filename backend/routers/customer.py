@@ -350,10 +350,12 @@ def get_orders(user: User = Depends(require_customer), db: Session = Depends(get
                 items.append({
                     "product_id": product.id,
                     "name": product.name,
+                    "category": product.category,
                     "unit": product.unit,
                     "quantity": order_item.quantity,
                     "unit_price": order_item.unit_price,
                     "line_total": round(order_item.unit_price * order_item.quantity, 2),
+                    "image_url": product.image_url,
                 })
 
         result.append({

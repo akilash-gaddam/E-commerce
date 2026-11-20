@@ -68,7 +68,7 @@ def seed_database():
                 selling_price=0.69,
                 stock_qty=150,
                 unit="1kg",
-                image_url=None,
+                image_url="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&h=400&fit=crop&crop=center",
                 is_active=True,
             ),
             Product(
@@ -79,7 +79,7 @@ def seed_database():
                 selling_price=2.49,
                 stock_qty=80,
                 unit="4 pack",
-                image_url=None,
+                image_url="https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=400&h=400&fit=crop&crop=center",
                 is_active=True,
             ),
             Product(
@@ -90,7 +90,7 @@ def seed_database():
                 selling_price=3.29,
                 stock_qty=60,
                 unit="150g bag",
-                image_url=None,
+                image_url="https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400&h=400&fit=crop&crop=center",
                 is_active=True,
             ),
             Product(
@@ -101,7 +101,7 @@ def seed_database():
                 selling_price=3.99,
                 stock_qty=70,
                 unit="1kg",
-                image_url=None,
+                image_url="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=400&h=400&fit=crop&crop=center",
                 is_active=True,
             ),
             # Dairy (4 items)
@@ -113,7 +113,7 @@ def seed_database():
                 selling_price=2.49,
                 stock_qty=200,
                 unit="1L",
-                image_url=None,
+                image_url="https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400&h=400&fit=crop&crop=center",
                 is_active=True,
             ),
             Product(
@@ -124,7 +124,7 @@ def seed_database():
                 selling_price=3.79,
                 stock_qty=120,
                 unit="500g",
-                image_url=None,
+                image_url="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=400&fit=crop&crop=center",
                 is_active=True,
             ),
             Product(
@@ -135,7 +135,7 @@ def seed_database():
                 selling_price=6.99,
                 stock_qty=90,
                 unit="400g",
-                image_url=None,
+                image_url="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&crop=center",
                 is_active=True,
             ),
             Product(
@@ -146,7 +146,7 @@ def seed_database():
                 selling_price=5.49,
                 stock_qty=100,
                 unit="250g",
-                image_url=None,
+                image_url="https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=400&h=400&fit=crop&crop=center",
                 is_active=True,
             ),
             # Pantry (4 items)
@@ -158,7 +158,7 @@ def seed_database():
                 selling_price=12.99,
                 stock_qty=50,
                 unit="500ml",
-                image_url=None,
+                image_url="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=400&fit=crop&crop=center",
                 is_active=True,
             ),
             Product(
@@ -169,7 +169,7 @@ def seed_database():
                 selling_price=6.49,
                 stock_qty=75,
                 unit="1kg",
-                image_url=None,
+                image_url="https://images.unsplash.com/photo-1586201375761-83865011e356?w=400&h=400&fit=crop&crop=center",
                 is_active=True,
             ),
             Product(
@@ -180,7 +180,7 @@ def seed_database():
                 selling_price=1.89,
                 stock_qty=200,
                 unit="500g",
-                image_url=None,
+                image_url="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=400&h=400&fit=crop&crop=center",
                 is_active=True,
             ),
             Product(
@@ -191,7 +191,7 @@ def seed_database():
                 selling_price=1.49,
                 stock_qty=180,
                 unit="400g tin",
-                image_url=None,
+                image_url="https://images.unsplash.com/photo-1584017911766-d451babbd45c?w=400&h=400&fit=crop&crop=center",
                 is_active=True,
             ),
             # Beverages (3 items)
@@ -203,7 +203,7 @@ def seed_database():
                 selling_price=1.29,
                 stock_qty=300,
                 unit="6 x 500ml",
-                image_url=None,
+                image_url="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=400&h=400&fit=crop&crop=center",
                 is_active=True,
             ),
             Product(
@@ -214,7 +214,7 @@ def seed_database():
                 selling_price=4.99,
                 stock_qty=85,
                 unit="250ml",
-                image_url=None,
+                image_url="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=400&h=400&fit=crop&crop=center",
                 is_active=True,
             ),
             Product(
@@ -225,7 +225,7 @@ def seed_database():
                 selling_price=3.79,
                 stock_qty=110,
                 unit="1L",
-                image_url=None,
+                image_url="https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=400&h=400&fit=crop&crop=center",
                 is_active=True,
             ),
             # Bakery (3 items)
@@ -237,7 +237,7 @@ def seed_database():
                 selling_price=4.99,
                 stock_qty=40,
                 unit="1 loaf",
-                image_url=None,
+                image_url="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=400&fit=crop&crop=center",
                 is_active=True,
             ),
             Product(
@@ -248,7 +248,7 @@ def seed_database():
                 selling_price=3.49,
                 stock_qty=50,
                 unit="4 pack",
-                image_url=None,
+                image_url="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=400&fit=crop&crop=center",
                 is_active=True,
             ),
             Product(
@@ -259,7 +259,7 @@ def seed_database():
                 selling_price=2.99,
                 stock_qty=60,
                 unit="6 pack",
-                image_url=None,
+                image_url="https://images.unsplash.com/photo-1643097299420-825a86019ad2?w=400&h=400&fit=crop&crop=center",
                 is_active=True,
             ),
         ]

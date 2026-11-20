@@ -17,90 +17,99 @@
   }
 
   ::selection {
-    @apply bg-citrus text-citrus-text;
+    @apply bg-gold text-gold-text;
   }
 }
 
 /* Custom component styles */
 @layer components {
-  /* Card elevation with hard shadow */
+  /* Card elevation with glass shadow */
   .card-elevated {
-    @apply bg-elevated border border-border shadow-hard;
+    @apply bg-elevated border border-border shadow-glass backdrop-blur-md;
   }
 
   .card-elevated-hover {
-    @apply card-elevated transition-shadow duration-200 hover:shadow-hard-lg;
+    @apply card-elevated transition-all duration-300 hover:shadow-hard cursor-default;
   }
 
-  /* Button variants */
+  /* Button variants - Luxury Gold */
   .btn-primary {
-    @apply bg-citrus text-citrus-text font-body font-body-bold px-6 py-3
-           border border-border shadow-hard
-           transition-all duration-150
-           hover:bg-citrus-hover hover:shadow-hard-lg active:shadow-hard-sm active:translate-x-0.5 active:translate-y-0.5
-           focus:outline-none focus:ring-2 focus:ring-citrus focus:ring-offset-2 focus:ring-offset-elevated
-           disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-hard disabled:hover:translate-x-0 disabled:hover:translate-y-0;
+    @apply bg-gold text-gold-text font-body font-body-bold px-6 py-3
+           rounded-xl border border-gold
+           shadow-glass transition-all duration-300
+           hover:bg-gold-hover hover:shadow-hard active:scale-95
+           focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-canvas
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-glass disabled:hover:scale-100;
   }
 
   .btn-secondary {
-    @apply bg-forest text-forest-text font-body font-body-bold px-6 py-3
-           border border-border shadow-hard
-           transition-all duration-150
-           hover:bg-forest-hover hover:shadow-hard-lg active:shadow-hard-sm active:translate-x-0.5 active:translate-y-0.5
-           focus:outline-none focus:ring-2 focus:ring-forest focus:ring-offset-2 focus:ring-offset-elevated
-           disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-hard disabled:hover:translate-x-0 disabled:hover:translate-y-0;
+    @apply bg-elevated text-ink font-body font-body-bold px-6 py-3
+           rounded-xl border border-border
+           shadow-glass transition-all duration-300
+           hover:bg-ink-muted/10 hover:shadow-soft active:scale-95
+           focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-canvas
+           disabled:opacity-50 disabled:cursor-not-allowed;
   }
 
   .btn-ghost {
     @apply bg-transparent text-ink font-body font-body-semibold px-4 py-2
-           border border-transparent
-           transition-all duration-150
-           hover:bg-border-muted hover:border-border
-           focus:outline-none focus:ring-2 focus:ring-ink focus:ring-offset-2 focus:ring-offset-elevated;
+           rounded-xl border border-border
+           transition-all duration-300
+           hover:bg-ink-muted/5 hover:border-border-muted
+           focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-canvas;
   }
 
   .btn-danger {
-    @apply bg-ink text-elevated font-body font-body-bold px-4 py-2
-           border border-border shadow-hard-sm
-           transition-all duration-150
-           hover:bg-ink/90
-           focus:outline-none focus:ring-2 focus:ring-ink focus:ring-offset-2 focus:ring-offset-elevated;
+    @apply bg-crimson text-elevated font-body font-body-bold px-4 py-2
+           rounded-xl border border-transparent shadow-glass-sm
+           transition-all duration-300
+           hover:bg-crimson/90
+           focus:outline-none focus:ring-2 focus:ring-crimson focus:ring-offset-2 focus:ring-offset-canvas;
   }
 
-  /* Input styles */
+  .btn-success {
+    @apply bg-emerald text-ink font-body font-body-bold px-4 py-2
+           rounded-xl border border-emerald/50 shadow-glass-sm
+           transition-all duration-300
+           hover:bg-emerald/90
+           focus:outline-none focus:ring-2 focus:ring-emerald focus:ring-offset-2 focus:ring-offset-canvas;
+  }
+
+  /* Input styles - Luxury Dark */
   .input-field {
     @apply w-full px-4 py-3 bg-elevated border border-border
            font-body text-ink placeholder:text-ink-light
-           focus:outline-none focus:ring-2 focus:ring-citrus focus:border-transparent
-           transition-all duration-150;
+           focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent
+           transition-all duration-300 rounded-xl;
   }
 
   .input-field-error {
-    @apply border-red-600 focus:ring-red-600;
+    @apply border-crimson focus:ring-crimson;
   }
 
-  /* Badge styles */
+  /* Badge styles - Luxury Status */
   .badge-stock {
-    @apply font-mono font-mono-medium text-xs px-2 py-1 rounded;
+    @apply font-mono font-mono-medium text-xs px-3 py-1.5 rounded-full uppercase tracking-wider;
   }
 
   .badge-stock-ok {
-    @apply badge-stock bg-citrus text-citrus-text;
+    @apply badge-stock bg-emerald/10 text-emerald-400 border border-emerald/20;
   }
 
   .badge-stock-low {
-    @apply badge-stock bg-amber-400 text-ink;
+    @apply badge-stock bg-amber/10 text-amber-400 border border-amber/20;
   }
 
   .badge-stock-out {
-    @apply badge-stock bg-ink text-elevated;
+    @apply badge-stock bg-crimson/10 text-crimson-400 border border-crimson/20;
   }
 
   .badge-category {
-    @apply font-mono font-mono-medium text-xs px-2 py-1 rounded uppercase;
+    @apply font-mono font-mono-medium text-xs px-3 py-1.5 rounded-xl border
+           uppercase tracking-wider;
   }
 
-  /* Drawer animation */
+  /* Drawer animation - Slide in from right */
   .drawer-enter {
     @apply transform transition-transform duration-300 ease-out;
   }
@@ -109,7 +118,7 @@
     @apply transform transition-transform duration-200 ease-in;
   }
 
-  /* Stepper */
+  /* Stepper - Luxury minimalist */
   .stepper-step {
     @apply relative flex flex-col items-center;
   }
@@ -119,54 +128,54 @@
   }
 
   .stepper-line-complete {
-    @apply bg-citrus;
+    @apply bg-gold;
   }
 
   .stepper-circle {
-    @apply relative z-10 w-6 h-6 rounded-full border-2 border-border bg-elevated
+    @apply relative z-10 w-8 h-8 rounded-full border-2 border-border bg-elevated
            font-mono font-mono-bold text-xs flex items-center justify-center
-           transition-all duration-300;
+           transition-all duration-300 shadow-glass-sm;
   }
 
   .stepper-circle-complete {
-    @apply bg-citrus border-citrus text-citrus-text;
+    @apply bg-gold border-gold text-gold-text shadow-glass;
   }
 
   .stepper-circle-active {
-    @apply bg-ink border-ink text-elevated ring-4 ring-ink/10;
+    @apply bg-gold border-gold text-gold-text shadow-glass ring-4 ring-gold/20;
   }
 
   .stepper-circle-pending {
-    @apply text-ink-light;
+    @apply text-ink-muted;
   }
 
-  /* Product card */
+  /* Product card - luxury dark */
   .product-card {
-    @apply card-elevated-hover overflow-hidden flex flex-col;
+    @apply card-elevated-hover overflow-hidden flex flex-col rounded-xl;
   }
 
   .product-card-image {
-    @apply aspect-square bg-border-muted flex items-center justify-center;
+    @apply aspect-[4/3] bg-ink-muted/10 flex items-center justify-center;
   }
 
-  /* Quantity stepper */
+  /* Quantity stepper - refined */
   .qty-stepper {
-    @apply flex items-center gap-2 border border-border bg-elevated rounded;
+    @apply flex items-center gap-1 border border-border bg-elevated rounded-xl;
   }
 
   .qty-btn {
     @apply w-8 h-8 flex items-center justify-center font-mono font-mono-bold text-ink
-           hover:bg-border-muted active:bg-border active:scale-95
-           transition-all duration-100;
+           hover:bg-ink-muted/10 active:bg-ink-muted/20 active:scale-95
+           transition-all duration-100 rounded-lg;
   }
 
-  /* Table styles */
+  /* Table styles - luxury dark */
   .table-container {
     @apply overflow-x-auto border border-border bg-elevated;
   }
 
   .table-header {
-    @apply bg-border-muted text-ink font-body font-body-semibold text-sm uppercase tracking-wider;
+    @apply bg-ink-muted/10 text-ink font-body font-body-semibold text-sm uppercase tracking-wider;
   }
 
   .table-cell {
@@ -174,20 +183,20 @@
   }
 
   .table-row {
-    @apply hover:bg-border-muted/50 transition-colors;
+    @apply hover:bg-ink-muted/5 transition-colors;
   }
 
-  /* Portal indicator */
+  /* Portal indicator - luxury badge */
   .portal-badge {
-    @apply font-mono font-mono-medium text-xs px-3 py-1 rounded border border-border;
+    @apply font-mono font-mono-medium text-xs px-3 py-1.5 rounded-xl border;
   }
 
   .portal-badge-storefront {
-    @apply portal-badge bg-citrus text-citrus-text;
+    @apply portal-badge bg-gold/10 text-gold border-gold/30;
   }
 
   .portal-badge-admin {
-    @apply portal-badge bg-forest text-forest-text;
+    @apply portal-badge bg-emerald/10 text-ink border-emerald/20;
   }
 }
 
@@ -196,23 +205,27 @@
   .category-artwork {
     @apply w-full h-full flex items-center justify-center;
   }
+
+  .glass {
+    @apply bg-glass backdrop-blur-md border border-border;
+  }
 }
 
-/* Recharts customization */
+/* Recharts customization - dark theme */
 .recharts-cartesian-grid-horizontal line,
 .recharts-cartesian-grid-vertical line {
-  stroke: #E7E5E0;
+  stroke: rgba(255, 255, 255, 0.08);
 }
 
 .recharts-tooltip-wrapper {
-  @apply bg-elevated border border-border shadow-hard p-3;
+  @apply bg-elevated border border-border shadow-glass p-3 rounded-xl;
 }
 
 .recharts-default-tooltip {
-  @apply bg-elevated border border-border shadow-hard p-3 !important;
+  @apply bg-elevated border border-border shadow-glass p-3 rounded-xl !important;
 }
 
-/* Scrollbar styling */
+/* Scrollbar styling - subtle dark */
 ::-webkit-scrollbar {
   @apply w-2 h-2;
 }
@@ -222,5 +235,9 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-ink/20 rounded hover:bg-ink/40;
+  @apply bg-ink-muted/20 rounded hover:bg-ink-muted/40;
+}
+
+::-webkit-scrollbar-thumb:focus {
+  @apply outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-canvas;
 }

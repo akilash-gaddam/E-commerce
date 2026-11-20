@@ -85,7 +85,7 @@ export default function ShopPage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-canvas flex items-center justify-center p-4">
-        <div className="font-mono font-mono-medium text-sm">Loading products...</div>
+        <div className="font-mono font-mono-medium text-sm text-ink-muted">Loading products...</div>
       </div>
     );
   }
@@ -97,7 +97,7 @@ export default function ShopPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row lg:items-center gap-4 py-4">
             <h1 className="font-display font-display-bold text-xl lg:text-2xl text-ink">
-              STANDARD<span className="text-ink-light">.</span>IO
+              STANDARD<span className="text-gold">.</span>IO
             </h1>
 
             {/* Search + Filters */}
@@ -107,9 +107,9 @@ export default function ShopPage() {
                 value={filters.search}
                 onChange={handleSearch}
                 placeholder="Search products, SKUs..."
-                className="w-full px-4 py-3 bg-elevated border border-border font-body text-ink placeholder:text-ink-light
-                  focus:outline-none focus:ring-2 focus:ring-citrus focus:border-transparent
-                  transition-all duration-150 lg:text-base"
+                className="w-full px-4 py-3 bg-elevated border border-border font-body text-ink placeholder:text-ink-muted
+                  focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent
+                  transition-all duration-300 rounded-xl lg:text-base"
               />
             </div>
 
@@ -119,7 +119,7 @@ export default function ShopPage() {
                   type="checkbox"
                   checked={filters.in_stock_only}
                   onChange={handleInStockToggle}
-                  className="w-4 h-4 bg-elevated border border-border rounded focus:ring-citrus"
+                  className="w-4 h-4 bg-elevated border border-border rounded focus:ring-gold"
                 />
                 <span className="text-ink-muted">In Stock Only</span>
               </label>
@@ -131,9 +131,9 @@ export default function ShopPage() {
             <button
               type="button"
               onClick={() => handleCategoryFilter('')}
-              className={`px-3 py-1.5 rounded font-mono font-mono-medium text-sm border transition-colors ${
+              className={`px-3 py-1.5 rounded-xl font-mono font-mono-medium text-sm border transition-all duration-300 ${
                 filters.category === ''
-                  ? 'bg-citrus text-citrus-text border-citrus'
+                  ? 'bg-gold text-gold-text border-gold shadow-glass'
                   : 'bg-elevated text-ink border-border hover:bg-border-muted'
               }`}
             >
@@ -144,9 +144,9 @@ export default function ShopPage() {
                 key={cat}
                 type="button"
                 onClick={() => handleCategoryFilter(cat)}
-                className={`px-3 py-1.5 rounded font-mono font-mono-medium text-sm border transition-colors ${
+                className={`px-3 py-1.5 rounded-xl font-mono font-mono-medium text-sm border transition-all duration-300 ${
                   filters.category === cat
-                    ? 'bg-citrus text-citrus-text border-citrus'
+                    ? 'bg-gold text-gold-text border-gold shadow-glass'
                     : 'bg-elevated text-ink border-border hover:bg-border-muted'
                 }`}
               >

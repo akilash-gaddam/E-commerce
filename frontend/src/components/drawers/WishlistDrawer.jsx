@@ -15,8 +15,8 @@ export default function WishlistDrawer({ open, onClose }) {
 
   if (!isAuthenticated || !isCustomer) {
     return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30">
-        <div className="bg-elevated border border-border shadow-hard p-6 max-w-sm w-full mx-4">
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/30 backdrop-blur-sm">
+        <div className="bg-elevated border border-border shadow-glass-lg p-6 max-w-sm w-full mx-4 rounded-xl">
           <p className="font-body font-body-medium text-ink mb-4">Please log in to view your wishlist</p>
           <button onClick={() => navigate('/login')} className="btn-primary w-full">
             Go to Login
@@ -44,16 +44,16 @@ export default function WishlistDrawer({ open, onClose }) {
   return (
     <>
       {/* Backdrop */}
-      <div className="fixed inset-0 z-40 bg-ink/40 backdrop-blur-sm" onClick={onClose} />
+      <div className="fixed inset-0 z-40 bg-ink/30 backdrop-blur-sm" onClick={onClose} />
 
       {/* Drawer */}
-      <div className="fixed top-0 right-0 h-full w-full max-w-md bg-elevated border-l border-border shadow-hard-lg z-50 flex flex-col">
+      <div className="fixed top-0 right-0 h-full w-full max-w-md bg-elevated border border-border shadow-glass-lg z-50 flex flex-col rounded-l-2xl">
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-border">
           <h2 className="font-display font-display-bold text-lg">Wishlist ({items.length})</h2>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-border-muted rounded transition-colors"
+            className="p-2 hover:bg-border-muted transition-colors rounded-xl"
             aria-label="Close wishlist"
           >
             <X className="w-5 h-5" />
@@ -63,7 +63,7 @@ export default function WishlistDrawer({ open, onClose }) {
         {/* Items */}
         <div className="flex-1 overflow-y-auto p-4">
           {loading ? (
-            <div className="font-mono font-mono-medium text-sm text-center py-8">Loading...</div>
+            <div className="font-mono font-mono-medium text-sm text-ink-muted text-center py-8">Loading...</div>
           ) : items.length === 0 ? (
             <div className="text-center py-16">
               <Heart className="w-12 h-12 mx-auto text-ink-light mb-4 stroke-ink-light" />
@@ -78,14 +78,27 @@ export default function WishlistDrawer({ open, onClose }) {
           ) : (
             <div className="space-y-3">
               {items.map((item) => (
-                <div key={item.product_id} className="flex gap-3 border border-border rounded p-3 bg-elevated">
+                <div key={item.product_id} className="flex gap-3 border border-border rounded-xl p-3 bg-elevated">
                   {/* Product thumbnail */}
-                  <div className="w-14 h-14 flex-shrink-0 border border-border rounded overflow-hidden">
+                  <div className="w-14 h-14 flex-shrink-0 border border-border rounded-xl overflow-hidden relative">
                     {item.image_url ? (
-                      <img src={item.image_url} alt={item.name} className="w-full h-full object-cover" />
-                    ) : (
-                      <CategoryArtwork category={item.category} />
-                    )}
+                      <img
+                        src={item.image_url}
+                        alt={item.name}
+                        className="w-full h-full object-cover transition-opacity duration-300"
+                        loading="lazy"
+                        decoding="async"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextElementSibling.style.display = 'block';
+                        }}
+                      />
+                    ) : null}
+                    <CategoryArtwork
+                      category={item.category}
+                      className={item.image_url ? 'absolute inset-0' : ''}
+                      style={item.image_url ? { display: 'none' } : {}}
+                    />
                   </div>
 
                   {/* Details */}
@@ -110,7 +123,7 @@ export default function WishlistDrawer({ open, onClose }) {
                     </button>
                     <button
                       onClick={() => handleRemove(item.product_id)}
-                      className="text-ink-muted hover:text-ink transition-colors"
+                      className="text-ink-muted hover:text-crimson transition-colors"
                       aria-label="Remove from wishlist"
                     >
                       <Trash2 className="w-4 h-4" />

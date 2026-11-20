@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { adminAPI } from '../api/client';
 import { formatPrice, STATUS_STAGES } from '../utils/helpers';
+import { Input } from '../components/ui/Input';
 import {
   BarChart, Bar, XAxis, YAxis,
   CartesianGrid, Tooltip, Legend, ResponsiveContainer,
